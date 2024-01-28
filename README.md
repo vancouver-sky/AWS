@@ -1,0 +1,5 @@
+- 4 core cold service
+  - Compute
+  - Storage
+  - Database
+  - Networking
