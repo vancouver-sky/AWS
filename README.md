@@ -55,11 +55,17 @@
         - no human support 
       - Developer Support
         - can email human for support
+        - responses time: 24, 12 hours
       - Business Support
         - can call human support
+        - responses time: 24, 12, 4, 1 hours
       - Enterprise Support
         - designated Technical Advisor Manager (TAM)
-    - 
+        - responses time: 24, 12, 4, 1 hours, 15 minutes
+  - Assistance for Cloud Workloads
+    - AWS Quick Starts
+    - AWS Partner Network Consulting Partners
+    - AWS Professional Services
        
 
 
