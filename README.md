@@ -172,10 +172,37 @@
       - S3 Glacier Instant Retrieval
       - S3 Glacier Flexible Retrieval
       - S3 Glacier Deep Archive
-  - Elastic Block Store
-  - Elastic File System
+        
+  - Elastic Block Store (EBS)
+    - used in EC2
+    - provide multiple volume types:
+      - General purpose SSD
+      - Provisioned IOPS SSD - high performance
+      - Throughput optimized HDD
+      - Code HDD 
+  - Elastic File System (EFS)
+    - for Linux-based workloads
+    - fully managed NFS file system (network file system)
+    - support up to petabyte scale
+    - 2 classes:
+      - Standard
+      - Infrequent access
+    - Amazon FSx for Windows File Server
+      - SMB support
+      - Active Directory integration
+      - Windows NTFS 
   - AWS Snowball
-  - AWS Snowmobile 
+    - physically migrate petabyte-scale data to AWS
+  - AWS Snowmobile
+    - physically migrate exabyte scale data onto AWS
+
+- AWS Databases & Related Services (Purple)
+  - Amazon RDS
+  - Amazon Aurora
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon Elasticache
+  - AWS Database Migration Services 
 
 
 
