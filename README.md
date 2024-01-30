@@ -198,13 +198,53 @@
 
 - AWS Databases & Related Services (Purple)
   - Amazon RDS
+    - support MySQL, PostgreSQL, MariaDB, Oracle Database, SQL Server, Amazon Aurora 
   - Amazon Aurora
+    - is a MySQL and PostgreSQL-compatible relational database 
   - Amazon DynamoDB
+    - NoSQL database service;
+    - SaaS
+    - Good for gaming company
   - Amazon Redshift
+    -  data warehouse service
+    -  petabyte scale warehousing
   - Amazon Elasticache
-  - AWS Database Migration Services 
+    - in-memory
+    - supports both Memcached and Redis
+    - database layer caching  
+  - AWS Database Migration Services (DMS)
+  - Additional Database Services
+    - DocumentDB -> MongoDB
+    - Neptune -> Managed graph database
+      - mapping relationships, such social network 
+    - MemoryDB -> Redis in-memory DB
+    - Timestream -> Serverless time series DB 
+
+- AWS App Integration Service
+  - Amazon SNS (Simple Notification Service)
+    - publish/subscrib message service
+  - Amazon SQS (Simple Queue Service)
+    - message queue service
+  - AWS Step Functions
+    - Serverless workflow management service
+    - workflows
+
+- Management and Governance Services
+  - AWS CloudTrail
+  - AWS CloudFormation
+  - AWS CloudWatch
+  - AWS Config
+  - AWS Systems Manager
+  - AWS Control Tower
+ 
+ 
+   
 
 
+
+
+
+  
 
 
 
