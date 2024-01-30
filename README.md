@@ -1,8 +1,12 @@
 - 4 core cold service
-  - Compute
-  - Storage
-  - Database
-  - Networking
+  - Compute (oragne icons)
+  - Storage (green icons)
+  - Database (blue icons)
+  - Networking (purple icons)
+
+  - Security (red icons)
+  - Elasticity
+    - The ability for the infrastructure supporting an application to grow and contract based on how much it is used at a point in time.   
 
 - Global Infrasturction 
   - AWS Regions
@@ -66,43 +70,84 @@
     - AWS Quick Starts
     - AWS Partner Network Consulting Partners
     - AWS Professional Services
-       
-- EC2
-  - Instance type
-    - such as cpu, gpu etc.
-  - EBS
-    - persistent storage
-  - Instance Store
-    - in memery
-  - Amazon Machine Image (AMI)
-  - Uprchase Options
-    - On-Demand
-    - Reserved
-      - Standard
-      - Convertible
-      - Scheduled
-    - Savings Plan
-    - Spot Instances
-      - up to 90% discount
-    - Dedicated Host
-      - per server license model
+
+- Compute (orange icons)
+  - EC2
+    - Instance type
+      - such as cpu, gpu etc.
+    - EBS
+      - persistent storage
+    - Instance Store
+      - in memery
+    - Amazon Machine Image (AMI)
+    - Purchase Options
+      - On-Demand
+      - Reserved
+        - Standard
+        - Convertible
+        - Scheduled
+      - Savings Plan
+      - Spot Instances
+        - up to 90% discount
+      - Dedicated Host
+        - per server license model
      
-- Beanstalk
-  - Platform as a service (PaaS)
-    - supported app platforms
-      - Java, .NET, PHP, Node.js, Python, Docker, Ruby, Go
-  - Monitoring included
-  - Deployment
-  - Scaling
-  - allow EC2 Customization
-
-- Lambda
-  - event-driven, serverless computing platform
+  - Beanstalk
+    - Platform as a service (PaaS)
+      - supported app platforms
+        - Java, .NET, PHP, Node.js, Python, Docker, Ruby, Go
+    - Monitoring included
+    - Deployment
+    - Scaling
+    - allow EC2 Customization
+  
+  - Lambda
+    - event-driven, serverless computing platform
     
-- Container Service 
+  - Container Service 
+    - AWS App Runner
+    - Container Orchestration Services
+      - ECS
+        - natively integrates with many AWS services 
+      - EKS
+        - Kubernetes 
+      - Compute Engines
+        - EC2 
+        - AWS Fargate
+          - Serverless compute engine     
 
-
-
+- Network & Content Delivery Services (blue icons)
+  - Amazon Rotue 53
+    - Amazon DNS server
+    - Global AWS service (not regional)
+    - Enables global resource routing 
+  - Amazon VPC
+  - AWS Direct Connect
+    - establish a dedicated network connection form your data center to AWS   
+  - Amazon API Gateway
+    - can distribute from CloudFront
+    - provides monitoring and metrics
+    - supports VPC  
+  - Amazon CloudFront
+    - Content delivery network (CDN)
+    - Enables usres to get content from server closest to them
+    - use edge locations
+  - Elastic Load Balancing
+    - integrates with EC2, ECS and Lambda
+    - support one or more availability zone in a region
+    - 3 types of load balancers:
+      - Application Load Balancer (ALB)
+      - Network Load Balancer (NLB)
+      - Classic Load Balancer (Classic or ELB)
+    - Scaling EC2
+      - Vertical Scaling
+      - Horizontal Scaling
+        - user load balancer to add more nodes       
+  - AWS Global Accelerator
+    - use Edge location
+    - use AWS network instead of public internet
+    - can use with AWS service, such as ALB, NLB,EC2, Elastic IP
+    
 
 
 
