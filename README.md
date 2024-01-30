@@ -116,7 +116,7 @@
         - AWS Fargate
           - Serverless compute engine     
 
-- Network & Content Delivery Services (blue icons)
+- Network & Content Delivery Services (blue icons) (6 core services)
   - Amazon Rotue 53
     - Amazon DNS server
     - Global AWS service (not regional)
@@ -147,7 +147,35 @@
     - use Edge location
     - use AWS network instead of public internet
     - can use with AWS service, such as ALB, NLB,EC2, Elastic IP
-    
+
+- File Storage Services (green) (6 core services)
+  - S3
+    - stores files as objects in buckets
+    - provides different storage classes
+    - stores data across multiple availability zones
+    - enables URL access
+    - can serve as a static website host
+    - S3 Non-Archival Storage classes
+      - S3 Standard
+      - S3 Intelligent-Tiering
+      - S3 Standard-IA (infrequently accessed data)
+      - S3 One Zone-IA
+    - S3 lifecycle policies
+      - transition can enable objects to another storage class based on time
+      - version
+    - S3 Transfer Acceleration
+      - use edge location
+        
+  - S3 Glacier
+    - archive storage
+    - 3 classes
+      - S3 Glacier Instant Retrieval
+      - S3 Glacier Flexible Retrieval
+      - S3 Glacier Deep Archive
+  - Elastic Block Store
+  - Elastic File System
+  - AWS Snowball
+  - AWS Snowmobile 
 
 
 
