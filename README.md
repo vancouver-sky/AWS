@@ -67,7 +67,39 @@
     - AWS Partner Network Consulting Partners
     - AWS Professional Services
        
+- EC2
+  - Instance type
+    - such as cpu, gpu etc.
+  - EBS
+    - persistent storage
+  - Instance Store
+    - in memery
+  - Amazon Machine Image (AMI)
+  - Uprchase Options
+    - On-Demand
+    - Reserved
+      - Standard
+      - Convertible
+      - Scheduled
+    - Savings Plan
+    - Spot Instances
+      - up to 90% discount
+    - Dedicated Host
+      - per server license model
+     
+- Beanstalk
+  - Platform as a service (PaaS)
+    - supported app platforms
+      - Java, .NET, PHP, Node.js, Python, Docker, Ruby, Go
+  - Monitoring included
+  - Deployment
+  - Scaling
+  - allow EC2 Customization
 
+- Lambda
+  - event-driven, serverless computing platform
+    
+- Container Service 
 
 
 
