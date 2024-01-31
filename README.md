@@ -25,16 +25,16 @@
  
 ## Cloud Economics
   - Tag   
-  - AWS Organizations
+  - `AWS Organizations`
     - manage multiple accounts
     - provide single bill
   - Building the Business Case
-    - AWS Pricing Calculate
+    - `AWS Pricing Calculator`
       - AWS Simple Monthly Calculator (deprecated)
       - can use for one machine pricing calculating instead of migration project
     - Create a TCO - total cost
-    - AWS Migration Hub
-    - Migration Evalutator
+    - `AWS Migration Hub`
+    - `Migration Evalutator`
 
 ## AWS Support
   - support from AWS resources
