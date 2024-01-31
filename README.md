@@ -8,7 +8,7 @@
   - Elasticity
     - The ability for the infrastructure supporting an application to grow and contract based on how much it is used at a point in time.   
 
-- Global Infrasturction 
+ ## Global Infrasturction 
   - AWS Regions
     - Each region contains multiple datacenter cluster   
   - Availability Zones
@@ -23,7 +23,7 @@
     - as node of global network node Content Delivery Network (CDN)
   - Local and Wavelength Zones
  
-- Cloud Economics
+## Cloud Economics
   - Tag   
   - AWS Organizations
     - manage multiple accounts
@@ -36,7 +36,7 @@
     - AWS Migration Hub
     - Migration Evalutator
 
-- AWS Support
+## AWS Support
   - support from AWS resources
   - AWS Personal Health Dashboard
     - provide alerts and remediation guidline
@@ -116,7 +116,7 @@
         - AWS Fargate
           - Serverless compute engine     
 
-- Network & Content Delivery Services (blue icons) (6 core services)
+## Network & Content Delivery Services (blue icons) (6 core services)
   - Amazon Rotue 53
     - Amazon DNS server
     - Global AWS service (not regional)
@@ -148,7 +148,7 @@
     - use AWS network instead of public internet
     - can use with AWS service, such as ALB, NLB,EC2, Elastic IP
 
-- File Storage Services (green) (6 core services)
+## File Storage Services (green) (6 core services)
   - S3
     - stores files as objects in buckets
     - provides different storage classes
@@ -196,7 +196,7 @@
   - AWS Snowmobile
     - physically migrate exabyte scale data onto AWS
 
-- AWS Databases & Related Services (Purple)
+## AWS Databases & Related Services (Purple)
   - Amazon RDS
     - support MySQL, PostgreSQL, MariaDB, Oracle Database, SQL Server, Amazon Aurora 
   - Amazon Aurora
@@ -269,7 +269,7 @@
   - AWS Organizations
     - Allows organizations to manage multiple accounts under a single master account
 
-- Security and Architecture
+## Security and Architecture
   - AWS Shared Responsibility Model
   -  Pillars of the Well-architected Framework
     - Operational Excellence
@@ -287,7 +287,7 @@
     - AWS GuardDuty
       - intelligent threat detection 
 
- - AWS Identities and User Management
+ ## AWS Identities and User Management
    -  AWS IAM (Identity and Access Management)
      - Identities
        - Users
@@ -299,8 +299,9 @@
        - MFA
        - Least Privilege Access
      - AWS Cognito
-       - handle authentication and authorization for your custom web and mobile applications     
-  - Data Architecture
+       - handle authentication and authorization for your custom web and mobile applications
+       
+## Data Architecture
     - On-premise Data Integration
       - AWS Storage Gateway
         - Integrates cloud storage into your local network
