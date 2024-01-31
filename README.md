@@ -231,15 +231,122 @@
 
 - Management and Governance Services
   - AWS CloudTrail
+    - audit trail
+    - event history logs
+    - in an S3
+    - meets many compliance requirements
+    - can be consolidated with AWS Control Tower
   - AWS CloudFormation
+    - infrastructure automation
+    - provisioning infrastruture based on templates
+    - No additional charge
+    - Templates can be YAML or JSON
+    - Enable infrastucture as code
+    - Provides drift detection to find changes in your infrastructure
   - AWS CloudWatch
+    - track infrastuction
+    - provides metrics, logs, and alarms for infrastructure
+    - Monitoring and management service
   - AWS Config
+    -  continually evaluates infrastructure against a set of rules
   - AWS Systems Manager
+    - operational insights
+    - provides operational data and automation across infrastucture
+    - enables automation tasks for common maintenance actions
+  - AWS OpsWorks
+    - Provides managed instances of Chef and Puppet
+    - Confguration is defined as code for servers
+    - Chef and Puppet manage the lifecycle of those configuration changes with servers
+    - Master-slave architecture
+    - AWS OpsWorks for Chef Automate
+    - AWS OpsWorks for Puppet Enterprise
+    - AWS OpsWorks for Stacks
   - AWS Control Tower
- 
- 
-   
+    - Centralizes users across all AWS accounts
+    - Provides a way to create new AWS accounts based on templates
+    - Integrates Guardrails for accounts
+    - Includes a dashboard 
+  - AWS Organizations
+    - Allows organizations to manage multiple accounts under a single master account
 
+- Security and Architecture
+  - AWS Shared Responsibility Model
+  -  Pillars of the Well-architected Framework
+    - Operational Excellence
+    - Security
+    - Reliability
+    - Performance Efficiency
+    - Cost Optimization
+    - Sustainability
+  - High-availability and Fault Tolerance
+  - Compliance
+    - AWS Config
+      - conformance packs for standards 
+    - AWS Artifact
+      - self-service access to reports  
+    - AWS GuardDuty
+      - intelligent threat detection 
+
+ - AWS Identities and User Management
+   -  AWS IAM (Identity and Access Management)
+     - Identities
+       - Users
+       - Groups
+       - Roles
+     - Policies
+       - JSON document that define permissions
+     - Best practices
+       - MFA
+       - Least Privilege Access
+     - AWS Cognito
+       - handle authentication and authorization for your custom web and mobile applications     
+  - Data Architecture
+    - On-premise Data Integration
+      - AWS Storage Gateway
+        - Integrates cloud storage into your local network
+        - Deployed as a VM or specific hardware appliance
+        - Supports 3 different gateway types:
+          - Tape Gateway
+            - virtual tapes 
+          - Volume Gateway
+            - cloud base iSCSI volumes to local applications 
+          - File Gateway
+            - Stores files in S3 with local cached  
+      - AWS DataSync
+        - charged per GB per data transform
+    - Process Data
+      - AWS Glue
+        - Manage Extract, Transform and Load (ETL) Service
+        - Supports RDS, DynamoDB, Redshift, and S3
+      - AWS EMR
+        - Big-data cloud processing on EC2 and S3
+        - Supported tools
+          - Apache Spark
+          - Apache Hive
+          - Apache HBase
+          - Apache Flink
+          - Apache Hudi
+          - Presto 
+      - AWS Data Pipeline
+        -   upports RDS, EMR, DynamoDB, Redshift, and S3
+      - Data Analysis
+        - Amazon Athena
+          - enables querying of data stored in S3
+          - can use SQL
+          - charge by scanned data by query 
+        - Amazon Quicksight
+          - Business intelligence service
+          - data dashboard
+        - Amazon CloudSearch
+      - AI and Machine Learning
+        - Amazon Rekognition
+          - image, video
+          - identifies objects in images
+          - facial recognition
+        - Amazon Translate
+          - text recognition 
+        - Amazon Transcribe
+          - speech recognition    
 
 
 
