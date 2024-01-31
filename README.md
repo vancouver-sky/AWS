@@ -71,7 +71,7 @@
     - AWS Partner Network Consulting Partners
     - AWS Professional Services
 
-- ##Compute (orange icons)
+##- Compute (orange icons)
   - EC2
     - Instance type
       - such as cpu, gpu etc.
