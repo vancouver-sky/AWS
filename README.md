@@ -1,10 +1,13 @@
-- 4 core cold service
+- 8 core cold categories
   - Compute (oragne icons)
   - Storage (green icons)
   - Database (blue icons)
   - Networking (purple icons)
 
   - Security (red icons)
+  - Application Integration
+  - Management & Governance
+    
   - Elasticity
     - The ability for the infrastructure supporting an application to grow and contract based on how much it is used at a point in time.   
 
