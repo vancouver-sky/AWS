@@ -187,10 +187,10 @@
     - 2 classes:
       - Standard
       - Infrequent access
-    - Amazon FSx for Windows File Server
-      - SMB support
-      - Active Directory integration
-      - Windows NTFS 
+  - Amazon FSx for Windows File Server
+    - SMB support
+    - Active Directory integration
+    - Windows NTFS 
   - AWS Snowball
     - physically migrate petabyte-scale data to AWS
   - AWS Snowmobile
@@ -220,7 +220,7 @@
     - MemoryDB -> Redis in-memory DB
     - Timestream -> Serverless time series DB 
 
-- AWS App Integration Service
+## AWS App Integration Service
   - Amazon SNS (Simple Notification Service)
     - publish/subscrib message service
   - Amazon SQS (Simple Queue Service)
@@ -229,7 +229,7 @@
     - Serverless workflow management service
     - workflows
 
-- Management and Governance Services
+## Management and Governance Services
   - AWS CloudTrail
     - audit trail
     - event history logs
@@ -298,8 +298,8 @@
      - Best practices
        - MFA
        - Least Privilege Access
-     - AWS Cognito
-       - handle authentication and authorization for your custom web and mobile applications
+   - AWS Cognito
+     - handle authentication and authorization for your custom web and mobile applications
        
 ## Data Architecture
     - On-premise Data Integration
@@ -314,12 +314,13 @@
           - File Gateway
             - Stores files in S3 with local cached  
       - AWS DataSync
+        - Integrates with S3, EFS, and FSx for Windows
         - charged per GB per data transform
     - Process Data
       - AWS Glue
         - Manage Extract, Transform and Load (ETL) Service
         - Supports RDS, DynamoDB, Redshift, and S3
-      - AWS EMR
+      - AWS EMR (Elastic Map Reduce) (tool)
         - Big-data cloud processing on EC2 and S3
         - Supported tools
           - Apache Spark
@@ -328,26 +329,103 @@
           - Apache Flink
           - Apache Hudi
           - Presto 
-      - AWS Data Pipeline
-        -   upports RDS, EMR, DynamoDB, Redshift, and S3
-      - Data Analysis
-        - Amazon Athena
-          - enables querying of data stored in S3
-          - can use SQL
-          - charge by scanned data by query 
-        - Amazon Quicksight
-          - Business intelligence service
-          - data dashboard
-        - Amazon CloudSearch
-      - AI and Machine Learning
-        - Amazon Rekognition
-          - image, video
-          - identifies objects in images
-          - facial recognition
-        - Amazon Translate
-          - text recognition 
-        - Amazon Transcribe
-          - speech recognition    
+      - AWS Data Pipeline (orchestration service)
+        -  also for ETL
+        -  upports RDS, EMR, DynamoDB, Redshift, and S3
+    - Data Analysis
+      - Amazon Athena
+        - enables querying of data stored in S3
+        - can use SQL
+        - charge by scanned data by query 
+      - Amazon Quicksight
+        - Business intelligence service
+        - data dashboard
+      - Amazon CloudSearch
+    - AI and Machine Learning
+      - Amazon Rekognition
+        - image, video
+        - identifies objects in images
+        - facial recognition
+      - Amazon Translate
+        - text recognition 
+      - Amazon Transcribe
+        - speech recognition 
+
+## Disaster Recovery
+  - Disaster Recovery Architectures
+    - Backup and Restore
+    - Pilot light
+    - Warm standby
+    - Multi Site 
+  - Select a Disaster Recovery Architecture
+    - Recovery Time Objective (RTO)
+      - Forcus on time 
+    - Recovery Point Objective (RPO)
+      - The amount of data loss
+      - forcus on data
+     
+## Architecting Applicationson EC2
+  - Scalling EC2
+    - Horizontal vs Virtical (horizotal is good; scaling out not big)
+  - EC2 Auto-Scaling Group
+    - Launch template
+    - Defines the minimum, maximum and desired number of instances
+    - Performs health checks on each instance
+    - Exists within 1 or more availability zones in a single region
+    - Work on on-demain 
+  - AWS Secrets Manager
+  - Controlling Access to EC2 Instances
+    - Security Groups
+      - Serve as a firewall
+      - control inbound and outbound traffic
+      - Works at the instance level
+      - EC2 instances can belong to multiple security groups
+      - VPC have default security groups
+      - Must be explicitly associated with an EC2 instance
+      - By default all outbound traffic is allowed   
+    - Network ACL's
+      - Works at the subnet level with an VPC
+      - Each VPC has a default ACL that allows all inbound and outbound traffic
+      - Custom ACL deny all traffic until rules are added 
+    - AWS VPN
+      - Creates an encrypted tunnel into your VPC
+      - Can be used to connect your data center
+      - Supported in 2 services
+        - Site-to-site VPN 
+        - Client VPN
+  - Protecting from attacks
+    - AWS Shield
+      - DDoS protection
+      - 2 levels
+        - standard
+        - advance 
+    - Amazon Macie
+      - Data protection
+      - classified the data
+      - DLP
+    - Amazon Inspector
+      - Automated security assessment service
+      - 2 types of rules packages
+        - Network assessment
+        - Host assessment
+  - Deploying Pre-defined Solution
+    - AWS Service Catalog
+    - AWS Marketplace
+  - Developer Tools
+    - AWS CodeCommit
+      - Git
+      - Source control
+      - control access with IAM policies
+    - AWS CodeBuild
+      - Build and continuous integration
+      - CI 
+    - AWS CodeDeploy
+      - auto deploy 
+    - AWS CodePipeline
+      - Continueous Delivery 
+    - AWS CodeStar
+      - Workflow tool
+      - Jenkins     
 
 
 
