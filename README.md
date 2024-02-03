@@ -303,6 +303,7 @@
        - Least Privilege Access
    - Amazon Cognito
      - handle authentication and authorization for your custom web and mobile applications
+     - SSO
        
 ## Data Architecture
     - On-premise Data Integration
