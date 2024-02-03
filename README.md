@@ -301,7 +301,7 @@
      - Best practices
        - MFA
        - Least Privilege Access
-   - AWS Cognito
+   - Amazon Cognito
      - handle authentication and authorization for your custom web and mobile applications
        
 ## Data Architecture
