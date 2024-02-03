@@ -290,7 +290,7 @@
     - AWS GuardDuty
       - intelligent threat detection 
 
- ## AWS Identities and User Management
+## AWS Identities and User Management
    -  AWS IAM (Identity and Access Management)
      - Identities
        - Users
@@ -306,27 +306,28 @@
      - SSO
        
 ## Data Architecture
-    - On-premise Data Integration
-      - AWS Storage Gateway
-        - Integrates cloud storage into your local network
-        - Deployed as a VM or specific hardware appliance
-        - Supports 3 different gateway types:
-          - Tape Gateway
-            - virtual tapes 
-          - Volume Gateway
-            - cloud base iSCSI volumes to local applications 
-          - File Gateway
-            - Stores files in S3 with local cached  
-      - AWS DataSync
+  - On-premise Data Integration
+    - AWS Storage Gateway
+      - Integrates cloud storage into your local network
+      - Deployed as a VM or specific hardware appliance
+      - Supports 3 different gateway types:
+        - Tape Gateway
+          - virtual tapes 
+        - Volume Gateway
+          - cloud base iSCSI volumes to local applications 
+        - File Gateway
+            - Stores files in S3 with local cached
+    - AWS DataSync
         - Integrates with S3, EFS, and FSx for Windows
         - charged per GB per data transform
-    - Process Data
-      - AWS Glue
-        - Manage Extract, Transform and Load (ETL) Service
-        - Supports RDS, DynamoDB, Redshift, and S3
-      - AWS EMR (Elastic Map Reduce) (tool)
-        - Big-data cloud processing on EC2 and S3
-        - Supported tools
+ 
+  - Process Data
+    - AWS Glue
+      - Manage Extract, Transform and Load (ETL) Service
+      - Supports RDS, DynamoDB, Redshift, and S3
+    - AWS EMR (Elastic Map Reduce) (tool)
+      - Big-data cloud processing on EC2 and S3
+      - Supported tools
           - Apache Spark
           - Apache Hive
           - Apache HBase
@@ -336,6 +337,7 @@
       - AWS Data Pipeline (orchestration service)
         -  also for ETL
         -  upports RDS, EMR, DynamoDB, Redshift, and S3
+  
     - Data Analysis
       - Amazon Athena
         - enables querying of data stored in S3
@@ -345,6 +347,7 @@
         - Business intelligence service
         - data dashboard
       - Amazon CloudSearch
+ 
     - AI and Machine Learning
       - Amazon Rekognition
         - image, video
@@ -378,6 +381,7 @@
     - Exists within 1 or more availability zones in a single region
     - Work on on-demain 
   - AWS Secrets Manager
+    
   - Controlling Access to EC2 Instances
     - Security Groups
       - Serve as a firewall
@@ -397,6 +401,7 @@
       - Supported in 2 services
         - Site-to-site VPN 
         - Client VPN
+          
   - Protecting from attacks
     - AWS Shield
       - DDoS protection
@@ -412,9 +417,11 @@
       - 2 types of rules packages
         - Network assessment
         - Host assessment
+          
   - Deploying Pre-defined Solution
     - AWS Service Catalog
     - AWS Marketplace
+      
   - Developer Tools
     - AWS CodeCommit
       - Git
