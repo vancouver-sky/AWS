@@ -160,9 +160,15 @@
     - can serve as a static website host
     - S3 Non-Archival Storage classes
       - S3 Standard
+        - frequently accessed data
       - S3 Intelligent-Tiering
+        - frequently accessed data 
+      - S3 Express One Zone
+        - most frequently accessed data
       - S3 Standard-IA (infrequently accessed data)
       - S3 One Zone-IA
+      - S3 Outposts
+        - On premises storage 
     - S3 lifecycle policies
       - transition can enable objects to another storage class based on time
       - version
