@@ -38,6 +38,9 @@
     - Create a TCO - total cost
     - `AWS Migration Hub`
     - `Migration Evalutator`
+  - AWS Budgets
+  - AWS Cost Explorer
+  - AWS Billing confuctor
 
 ## AWS Support
   - support from AWS resources
@@ -73,6 +76,10 @@
     - AWS Quick Starts
     - AWS Partner Network Consulting Partners
     - AWS Professional Services
+    - AWS Activate for Startups
+    - AWS IQ
+    - AWS Managed Service (AMS)
+    - AWS Support
 
 ## Compute (orange icons)
   - EC2
@@ -161,19 +168,27 @@
     - S3 Non-Archival Storage classes
       - S3 Standard
         - frequently accessed data
-      - S3 Intelligent-Tiering
-        - frequently accessed data 
       - S3 Express One Zone
         - most frequently accessed data
       - S3 Standard-IA (infrequently accessed data)
       - S3 One Zone-IA
+      - S3 Intelligent-Tiering
+        - Atuo adjust data storage
       - S3 Outposts
-        - On premises storage 
-    - S3 lifecycle policies
-      - transition can enable objects to another storage class based on time
-      - version
-    - S3 Transfer Acceleration
-      - use edge location
+        - On premises storage
+    
+  - S3 lifecycle policies
+    - transition can enable objects to another storage class based on time/version etc.
+    -> S3 Standard
+        -> S3 Standard-IA
+          -> S3 Intelligent-Tiering
+            -> S3 One Zone-IA
+              -> S3 Glacier Instant Retrieval
+                -> S3 Glacier Flexible Retrieval
+                  -> S3 Glacier Deep Archive
+      
+  - S3 Transfer Acceleration
+    - use edge location
         
   - S3 Glacier
     - archive storage
@@ -221,13 +236,15 @@
     - in-memory
     - supports both Memcached and Redis
     - database layer caching  
-  - AWS Database Migration Services (DMS)
   - Additional Database Services
     - DocumentDB -> MongoDB
     - Neptune -> Managed graph database
       - mapping relationships, such social network 
     - MemoryDB -> Redis in-memory DB
-    - Timestream -> Serverless time series DB 
+    - Timestream -> Serverless time series DB
+    - DB migration tools
+      - AWS Database Migration Service (DMS)
+      - AWS Schema Conversion Tool   
 
 ## AWS App Integration Service
   - Amazon SNS (Simple Notification Service)
@@ -237,6 +254,8 @@
   - AWS Step Functions
     - Serverless workflow management service
     - workflows
+  - Amazon EventBridge
+    - Serverless event bus for SaaS apps & AWS services 
 
 ## Management and Governance Services
   - AWS CloudTrail
@@ -435,6 +454,9 @@
       - Git
       - Source control
       - control access with IAM policies
+    - AWS AppConfig
+    - AWS Cloud9
+    - AWS CodeArtifact (Nexus repo) 
     - AWS CodeBuild
       - Build and continuous integration
       - CI 
@@ -444,9 +466,29 @@
       - Continueous Delivery 
     - AWS CodeStar
       - Workflow tool
-      - Jenkins     
+      - Jenkins
+    - AWS X-Ray
+      - Analyze your code and debug
+    - Amazon AppStream 2.0 (VDI desktop/Apps)
+    - Amazon WorkSpaces
+    - Amazon WorkSpaces Web
+    - AWS Amplify
+    - AWS AppSync
+    - AWS IoT Core
+    - AWS IoT Greengrass   
 
-
+## AI
+  - Amazon SageMaker
+    - Build, train machine learning models 
+  - Amazon Lex
+    - Build voice or text chat bots 
+  - Amazon Kendra
+    - Enterprise search 
+  - Amazon Athena
+    - Query data in S3 with SQL 
+  - Amazon Kinesis
+  - AWS Glue
+  - Amazon QuickSight
 
 
   
