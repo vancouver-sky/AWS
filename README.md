@@ -340,9 +340,11 @@
           - Apache Flink
           - Apache Hudi
           - Presto 
-      - AWS Data Pipeline (orchestration service)
-        -  also for ETL
-        -  upports RDS, EMR, DynamoDB, Redshift, and S3
+    - AWS Data Pipeline (orchestration service)
+      -  also for ETL
+      -  upports RDS, EMR, DynamoDB, Redshift, and S3
+    - Amazon Kinesis
+      - Collect, process and analyze real-time video and data stream  
   
     - Data Analysis
       - Amazon Athena
