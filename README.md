@@ -13,7 +13,7 @@
 
  ## Global Infrasturction 
   - AWS Regions
-    - Each region contains multiple datacenter cluster   
+    - Each region contains multiple datacenter clusters   
   - Availability Zones
     - Consists of one or more data centers
     - Multiple availability zones are included with each AWS Region
@@ -28,11 +28,12 @@
  
 ## Cloud Economics
   - Tag   
-  - `AWS Organizations`
+  - AWS Organizations
     - manage multiple accounts
     - provide single bill
   - Building the Business Case
-    - `AWS Pricing Calculator`
+    - AWS Pricing Calculator
+      - Use for estimating future cost
       - AWS Simple Monthly Calculator (deprecated)
       - can use for one machine pricing calculating instead of migration project
     - Create a TCO - total cost
