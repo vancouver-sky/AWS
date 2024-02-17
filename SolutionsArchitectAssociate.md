@@ -59,8 +59,28 @@
   - Compute Optimized
     - Batch jobs 
   - Memory Optimized
-  - Storage Optimzed  
-
+  - Storage Optimzed
+- EC2 Plancement Groups
+  - Cluster - clusters instances into a low-latency group in a single AZ - high performance; high risk
+    - same rack
+    - same AZ
+    - 10 Gvps bandwidth bewtween instances 
+  - Spread - spreads instances across underlying hardware (max 7 instances per group per AZ) - critical applications
+    - each instance on different hardware/rack 
+  - Partition - spreads instances across many different partitions (which rely on different sets of racks) whithin an AZ. Scales to 100s of EC2 instances per group (Hadoop, Cassandra, Kafka)
+    - each partition presents a single rack
+    - up to 7 partitions per AZ
+- Elastic Network Interfaces (ENI)
+  - represents a virtual network card
+  - bound to single AZ; can NOT attach to another AZ
+ 
+## EBS
+  - Network drive
+    - so can be detached and attached to another EC2 instance 
+  - bound to single AZ
+    - if wants to move to other AZ, we can snapshot it first 
+  - have a provisioned capacity *aize in GBs, and IOPS)
+  
 
 
 
