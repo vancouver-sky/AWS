@@ -114,52 +114,106 @@
   - Scaling Cooldowns
     - Default 300 secounds 
 
-  ## RDS
-  - Support
-    - Oracle
-    - IBM DB2
-    - MS SQL Server
-    - PostgreSQL
-    - MySQL
-    - Amazon Aurora
-    - Maria DB
-  - RDS Read Replicas for read scalability
-    - Up to 15 Read Replicas
-    - 3 options
-      - Winthin AZ
-      - Cross AZ
-      - Cross Region 
-    -  Replication is ASYNC so reads are eventually consistent
-    -  Replicas can be promoted to their own DB
-    -  Applications must update the connection string to leverage read replicas
-    -  Use Cases: report servers
-    - Network Cost
-      - In AWS, there is a network cost when data goes from one AZ to another
-      - For Read Replicas within the same region, you don't pay that fee
-      - Cross region will incur a fee
-    - RDS Multi AZ
-      - for Disaster Recovery
-      - SYNC replication
-      - One DNS name - automatic app failover to standby
-      - Increase availability
-      - Failover in case of loss of AZ, loss of network, instance or stroage failure
-      - No manual intervention in apps
-      - Not used for scaling
-      - Note: The Read Replicas CAN be setup as Multi AZ for Disaster Recovery
-    - RDS - From Single-AZ to Multi-AZ
-      - Zero downtime opertaion
-      - Just click on "modify" for the database
-      - A snapshot is taken -> A new DB is restored from the snapshot in a new AZ -> Sync is established between the 2 DBs.
-  - Aurora
-    - 6 copies of your data across 3 AZ
-    - One Aurora Instance thakes writes (master)
-    - Automated failover for master in less than 30 seconds
-    - Master + up to 15 Aurora Read Replicas serve reads
-    - Support for Cross Region Replication
-    - Auto Expanding from 10G to 128 TB
-    - Client always points to the Writer Endpoint which points to the master which has ONE and only ONE.
-    - Because the Auto Scaling, it is hard to tracking the Read Replica, -> Reader Endpoint is a Connection Load Balancing to all of Read Replica
-      - The Load Balancer is on connection level not the statement level  
+## RDS
+- Support
+  - Oracle
+  - IBM DB2
+  - MS SQL Server
+  - PostgreSQL
+  - MySQL
+  - Amazon Aurora
+  - Maria DB
+- RDS Read Replicas for read scalability
+  - Up to 15 Read Replicas
+  - 3 options
+    - Winthin AZ
+    - Cross AZ
+    - Cross Region 
+  -  Replication is ASYNC so reads are eventually consistent
+  -  Replicas can be promoted to their own DB
+  -  Applications must update the connection string to leverage read replicas
+  -  Use Cases: report servers
+  - Network Cost
+    - In AWS, there is a network cost when data goes from one AZ to another
+    - For Read Replicas within the same region, you don't pay that fee
+    - Cross region will incur a fee
+  - RDS Multi AZ
+    - for Disaster Recovery
+    - SYNC replication
+    - One DNS name - automatic app failover to standby
+    - Increase availability
+    - Failover in case of loss of AZ, loss of network, instance or stroage failure
+    - No manual intervention in apps
+    - Not used for scaling
+    - Note: The Read Replicas CAN be setup as Multi AZ for Disaster Recovery
+  - RDS - From Single-AZ to Multi-AZ
+    - Zero downtime opertaion
+    - Just click on "modify" for the database
+    - A snapshot is taken -> A new DB is restored from the snapshot in a new AZ -> Sync is established between the 2 DBs.
+- Aurora
+  - 6 copies of your data across 3 AZ
+  - One Aurora Instance thakes writes (master)
+  - Automated failover for master in less than 30 seconds
+  - Master + up to 15 Aurora Read Replicas serve reads
+  - Support for Cross Region Replication
+  - Auto Expanding from 10G to 128 TB
+  - Client always points to the Writer Endpoint which points to the master which has ONE and only ONE.
+  - Because the Auto Scaling, it is hard to tracking the Read Replica, -> Reader Endpoint is a Connection Load Balancing to all of Read Replica
+    - The Load Balancer is on connection level not the statement level
+- Ports:
+  - MS SQL - 1433
+  - MySQL - 3306
+  - PostgreSQL - 5432
+  - Oracle - 1521
+
+## Route 53
+- Hosted Zones
+  - Public Hosted Zones
+  - Private Hosted Zones 
+- DNS record types
+  - A
+  - AAAA
+  - CNAME
+  - NS
+- CNAME vs Alias
+  - CNAME
+    - Points a hostname to any other hostname
+    - ONLY for non root domain
+  - Alisa
+    - Points a hostname to an AWS Resource
+    - Works for ROOT Domain and NON ROOT Domain
+    - Free of charge
+    - Native health check
+    - Alias Record is always of type A/AAAA for AWS resources
+    - Alias Record can NOT set the TTL
+    - You can NOT set an Alias Record for an EC2 DNS name
+- Routing Policies - response to DNS queries 
+  - Simple
+    - route traffic to a single resource
+    - can return multiple values in the same record. The client will random chose one.
+    - can NOT be associated with Health Checks 
+  - Weighted
+    - Control the % of the requests that go to each specific resource
+    - DNS name must have same name and type
+    - Can be associated with Health Checks
+    - Assign a weight of 0 to a record to stop sending traffic to a resource
+    - If all records are 0, then will return equally. 
+  - Failover
+    - Health Checks
+      - checks that monitor an endpoint (application, server, other AWS resource)
+      - checks that monitor other health checks (Calculated Health Checks)
+      - checks that monitor CloudWatch Alarms  
+  - Latency based
+    - Redirect to the resource that has the least latency close to us 
+  - Geolocation
+    - Base on user location
+    - should create a "Default" record 
+  - Multi-value Answer
+    - allow Health Checking with multiple values return; Simple policy can NOT associated with Health Checks 
+  - Geoproximity (using Route 53 Traffic Flow feature)
+    - based on the geographic location of users and resources
+  - IP-based Routing
+- Domain Registar vs DNS Service
 
 
 
