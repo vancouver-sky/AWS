@@ -80,8 +80,86 @@
   - bound to single AZ
     - if wants to move to other AZ, we can snapshot it first 
   - have a provisioned capacity *aize in GBs, and IOPS)
-  
 
+## Load Balancer
+- NLB has one static IP per AZ
+- Gateway Load Balancer - Uses the GENEVE protocol on port 6081
+- Sticky Session (Session Affinity)
+  
+- SSL - Server Name Indication (SNI)
+  - SNI solves the problem of loading multiple SSL certificate onto one web server (to serve multiple websites)
+  - It is a "newer" protocol, and requires the client to indicate the hostname of the target server in the initial SSL handshake.
+  - The server will then find the correct certificate, or return the default one.
+  - Only works for ALB & NLB, CloudFront
+  - Does not work for CLB
+ 
+- Connection Draining
+  - Feature naming
+    - Connection Draining - for CLB
+    - Deregistration Dely - for ALB & NLB 
+  - Time to complee "in-flight requests" while the instance is de-registering or unhealthy
+  - Stopes sending new requests to the EC2 instance which is de-registering
+  - Between 1 to 3600 seconds (default: 300 seconds)
+  - Can be disabled (set value to 0)
+
+- Auto Scaling Group (ASG)
+  - is free
+  - very powerful combinding with Load Balancer
+  - ASG Launch Template
+  - Dynamic Scaling
+    - Target Tracking Scaling -> set-up, such as average CPU to stay around 40%
+    - Simple/Step Scaling -> CloudWatch alarm 
+  - Scheduled Scaling
+  - Predictive scaling - predict usage and scheduled the scaling
+  - Scaling Cooldowns
+    - Default 300 secounds 
+
+  ## RDS
+  - Support
+    - Oracle
+    - IBM DB2
+    - MS SQL Server
+    - PostgreSQL
+    - MySQL
+    - Amazon Aurora
+    - Maria DB
+  - RDS Read Replicas for read scalability
+    - Up to 15 Read Replicas
+    - 3 options
+      - Winthin AZ
+      - Cross AZ
+      - Cross Region 
+    -  Replication is ASYNC so reads are eventually consistent
+    -  Replicas can be promoted to their own DB
+    -  Applications must update the connection string to leverage read replicas
+    -  Use Cases: report servers
+    - Network Cost
+      - In AWS, there is a network cost when data goes from one AZ to another
+      - For Read Replicas within the same region, you don't pay that fee
+      - Cross region will incur a fee
+    - RDS Multi AZ
+      - for Disaster Recovery
+      - SYNC replication
+      - One DNS name - automatic app failover to standby
+      - Increase availability
+      - Failover in case of loss of AZ, loss of network, instance or stroage failure
+      - No manual intervention in apps
+      - Not used for scaling
+      - Note: The Read Replicas CAN be setup as Multi AZ for Disaster Recovery
+    - RDS - From Single-AZ to Multi-AZ
+      - Zero downtime opertaion
+      - Just click on "modify" for the database
+      - A snapshot is taken -> A new DB is restored from the snapshot in a new AZ -> Sync is established between the 2 DBs.
+  - Aurora
+    - 6 copies of your data across 3 AZ
+    - One Aurora Instance thakes writes (master)
+    - Automated failover for master in less than 30 seconds
+    - Master + up to 15 Aurora Read Replicas serve reads
+    - Support for Cross Region Replication
+    - Auto Expanding from 10G to 128 TB
+    - Client always points to the Writer Endpoint which points to the master which has ONE and only ONE.
+    - Because the Auto Scaling, it is hard to tracking the Read Replica, -> Reader Endpoint is a Connection Load Balancing to all of Read Replica
+      - The Load Balancer is on connection level not the statement level  
 
 
 
