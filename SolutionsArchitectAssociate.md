@@ -215,7 +215,47 @@
   - IP-based Routing
 - Domain Registar vs DNS Service
 
-
+## S3
+- Buckets
+  - store objects(files) in "buckets" (directories)
+  - Buckets must have a globally unique name (across all regions all accounts)
+  - Buckets are defined at the region level
+  - S3 look like a global service but buckets are created in a region
+  - Naming convention
+    - No uppercase, No underscore
+    - 3 - 63 characters long
+    - Not an IP
+    - Must NOT start with the prefix xn--
+    - Must NOT end with the uffix -s3alias
+- Objects have a Key
+  - The key is the FULL path
+  - There is no dirtory concept
+  - Object values are the content of the body
+  - Max Object size is 5TB
+  - If more than 5TB, must use "multi-part upload"
+  - Metadata
+  - Tags(Unicode ke/value pair - up to 10)
+  - Version ID
+- S3 - Security
+  - User-Based
+    - IAM policies
+  - Resource-Based
+    - Bucket Policies - bucket wide rules from the S3 console - allows cross account
+    - Object Access Control List (ACL) - finer grain
+    - Bucket Access Control List - less common
+  - Note: an IAM principal can access an S3 object if
+    - The user IAM permissions ALLOW it OR the resource policy ALLOW it
+    - AND there's no explicit DENY  
+  - Encryption: encrypt objects in Amazon S3 using encryption keys
+  - S3 Bucket Policies
+    - IAM JSON based policies
+    - User - IAM Policy to allow
+    - EC2 instance - IAM Role policy to allow
+    - Block Public Access
+      - specificly deny
+      - allow Cross-Account
+     
+ 
 
 
 
