@@ -231,7 +231,7 @@
   - The key is the FULL path
   - There is no dirtory concept
   - Object values are the content of the body
-  - Max Object size is 5TB
+  - Max Object size is 5GB
   - If more than 5TB, must use "multi-part upload"
   - Metadata
   - Tags(Unicode ke/value pair - up to 10)
