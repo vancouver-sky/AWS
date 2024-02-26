@@ -254,6 +254,60 @@
     - Block Public Access
       - specificly deny
       - allow Cross-Account
+
+## Amazon FSx
+- Launch 3rd party high-performance file systems on AWS
+- FSx for Lustre
+  - Linux and Cluster
+  - is used to Machine Learning, High Performance Computing (HPC)
+  - Video Processing, Financial Modeling, Electronic Design Automation
+  - Seamless integration with S3
+    - Can "read S3" as a file system (through FSx)
+    - Can write the output of the computations back to S3 (through FSx)  
+- FSx for Windows File Serer
+  - Supports SMB, Windows NTFS, Active Directory, ACLs
+  - Can be mounted on Linux EC2 instance
+  - Supports MS Distributed File System (DFS) Namespaces (group files across multiple FS) 
+- FSx for NetApp ONTAP
+  - support NFS, SMB, iSCSI
+  - Move workloads running on ONTAP or NASto AWS
+  - Point-in-time instananceous cloning 
+- FSx for OpenZFS
+  - only support NFS
+  - Move workloads running on ZFS to AWS
+  - Point-in-time instananceous cloning 
+
+## Storage Gateway
+- for Hybrid Cloud for Storage
+- AWS Storage Cloud Native Options
+  - Block (EBS, EC2 instance store)
+  - File (EFS, FSx)
+  - Object (S3, Glacier)
+- AWS Storage Gateway
+  - Bridge between on-premises data and cloud data
+  - S3 File Gateway
+    - Not Glacier; only S3
+    - using NFS or SMB protocol
+    - Need to create IAM role for each gateway; also need to integrate with AD to access on-premises data
+  - FSx File Gateway
+    - Native access to Amazon FSx for Windows File Server
+    - Local cache for frequently accessed data
+    - Windows native compatibility (SMB, NTFS, Active Directory...) 
+  - Volume Gateway
+    - Block storage using iSCSI protocol backed by S3
+    - Backed by EBS snapshots which can help restore on-premises volumes
+    - Cached volumes: low latency access to most recent data
+    - Stored volumes: entire dataset is on premise, scheduled backups to S3 
+  - Tape Gateway
+    - Virtual Tape Library (VTL) backed by Amazon S3 and Glacier
+    - Back up data using existing tape-based processes (and iSCSI interface)
+     
+## DataSync
+- Move large data to and from
+  - out side AWS -> need agent
+  - in AWS -> no agent needed (even Glacier)
+- Replication tasks can be scheduled hourly, daily, weekly -> NOT real time / NOT continuely
+- File permisions and metadata are preserved 
      
  
 
