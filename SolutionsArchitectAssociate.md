@@ -322,6 +322,107 @@
 - Step Functions
 - Amazon Cognito
  
+## Database
+- RDBMS - great for joins; RDS, Aurora (OLTP; Online Transaction Processing)
+- NoSQL - no joins, no SQL; DynamoDB (~json), ElastiCache (key/value pairs), Neptune (graphs); DocumentDB(mongoDB); Amazon Keyspaces(Apache Cassandra)
+  - DocuentDB doesn't have serverless and is not global -> need use DynamoDB 
+- Object Store: S3
+- Data Warehouse - SQL Analytics/ BI; Redshift (OLAP; Online Analytical Processing), Athena, EMR
+- Search: OpenSearch (JSON)
+- Graphs: Amazon Neptune
+- Ledger: Amazon Quantum Ledger Database (Amazon QLDB)
+- Time series: Amazon Timestream
 
+## Data Analysis
+- Amazon Athena
+  - Servreless query in S3
+  - Uses standard SQL
+  - Commonly used with Amazon Quicksight for reporting
+  - Performance Improvement
+    - Use columnar data for cost-saving
+    - Apache Parquet or ORC is recommended
+    - Compress data for smaller retrievals
+    - Partition dataset in S3
+    - Use large file (>128M) in S3 instead of many small files in S3
+    - Use Federated Queries -> Use Data Source Connectors that run on AWS Lambda to run Federated Queries
+      
+- Redshift
+  - based on PostgreSQL, but is OLAP not OLTP.
+  - analytics and data warehousing
+  - Redshift has index, but Athena doesn't
+  - Loading data into Redshift
+    - Amazon Kinesis Data Firehose
+    - S3 using COPY command
+      - Through internet -> without Enhanced VPC Routing
+      - Through VPC -> with Enhanced VPC Routing 
+    - EC2 instance JDBC driver
+    - Large inserts is better
+  - Query -> Amazon Redshift Cluster (Leader Node -> Compute Nodes) -> Redshift Spectrum(s) -> S3
 
+- OpenSearch (ElasticSearch)
+  - With OpenSearch, you can search any field, even partially matches
+  - Does not natively support SQL (can be enabled via a plugin)
+  - DynamoDB Table -> Dynamo DB Stream -> Lambda Function -> Amazon OpenSearch
+    - Then, applicaiton API to search items in OpenSearch to get id, then go to DynamoDB Table to retrieve items
+  - Inject CloudWatch Logs
+ 
+- EMR (Elastic MapReduce)
+  - EMR helps creating Hadoop clusters (Big Data) to analyze and process vast amount of data
+  - The clusters can be made of hundreds of EC2 instances
+  - EMR comes bundled with Apache Spark, HBase, Presto, Flink
+  - Node types & purchasing
+    - Master Node - long running
+    - Core Node - long running
+    - Task Node - usually Spot
+    - Purchasing options
+      - On-demand: reliable, predictable, won't be terminated
+      - Reserved (min 1 year): cost savings (EMR will automatically use if available)
+      - Spot INstances: cheaper, can be terminated, less reliable
+    - Can have long-running cluster, or transient (temporary) cluster
 
+- Amazon QuickSight
+  - Servless machine learning-powered business intelligence service
+  - In-memory computation using SPICE engine if data is imported into QuickSight
+  - Enterprise edition: Possibility to setup Column-Level security (CLS)
+  - Define Users and Groups -> these are not IAM, only exist in QuickSight
+
+- AWS Glue ETL
+  - For ETL service
+  - Fully serverless service
+  - Need to write code
+  - AWS Glue - convert data into Parquest format
+  - Glue Data Catalog: catalog of datasets
+    - AWS Glue Data Crawler -> writes metadata -> AWS Glue Data Catalog
+    - Then, data discovery by Amazon Athena or Amazon Redshift Spectrum or Amazon EMR
+  - Glue Job Bookmarks: prevent re-processing old data
+  - Glue Elastic Views:
+    - Combine and repllicate data across multiple data stores
+  - Glue DataBrew: clean and normalize data
+  - Glue Studio: new GUI to create, run and monitor ETL jobs
+  - Glue Streaming ETL (built on Apache Spark Structured Streaming)
+ 
+- AWS Lake Formation
+  - Data lke = central place to have all your data for analytics purposes
+  - Out-of-the-box source blueprints: S3, RDS, Relational & NOoSQL DB ...
+  - Fine-grained Access Control for your applications
+  - Built on top AWS Glue
+  - Create Data Lake (stored in S3)
+  - Centralized Permissions -> so manay data sources, hard to do access control -> using Lake Formation to inject data to S3 (Data Lake) to manage ACL
+
+- Amaon Kinesis Data Analytics
+  - Kinesis Data Analytics for SQL applications
+    - Use SQL
+       
+  - Kinesis Data Analytics for Apache Flink
+    - Use Flink to process and analyze steaming data
+    - Run any Apache Flink application on a managed cluster on AWS
+      - Flink is much powerful than SQL
+    - Flink (Java, Scala or SQL) only read from Kinesis Data Streams or Amazon MSK
+    - Flink does NOT read from Firehose (use Kinesis Analytics for SQL instead)
+   
+- Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+  - Alternative to Amazon Kinesis
+  - Option to use MSK Serverless
+
+- Big Data Ingestion Pipeline
+  - IoT Devices -> real time sent data -> Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> S3 -> trigger SQS -> trigger Lambda -> trigger Athena query (pull data from S3) -> another S3 -> QuickSight or Redshift dataware house 
