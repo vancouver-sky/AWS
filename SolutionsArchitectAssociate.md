@@ -308,7 +308,19 @@
   - in AWS -> no agent needed (even Glacier)
 - Replication tasks can be scheduled hourly, daily, weekly -> NOT real time / NOT continuely
 - File permisions and metadata are preserved 
-     
+
+## CloudFront & AWS Global Acceslerator
+
+## Decoupling applications: SQS, SNS, Kinesis, Active MQ
+
+## Containers on AWS: ECS, Fargate, ECR & EKS
+
+## Serviceless Overviews from a Solution Architect Perspective
+- Lambda
+- DynamoDB
+- API Gateway
+- Step Functions
+- Amazon Cognito
  
 
 
