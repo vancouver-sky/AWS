@@ -1,4 +1,4 @@
-## Domain 1: Design Secure Architectures 
+ ## Domain 1: Design Secure Architectures 
 - Design secure access to AWS resources
 - Design secure workloads and applications
 - Determine appropriate data security controls
