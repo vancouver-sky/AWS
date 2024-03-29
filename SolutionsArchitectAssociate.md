@@ -427,3 +427,7 @@
 - Big Data Ingestion Pipeline
   - IoT Devices -> real time sent data -> Amazon Kinesis Data Streams -> Amazon Kinesis Data Firehose -> S3 -> trigger SQS -> trigger Lambda -> trigger Athena query (pull data from S3) -> another S3 -> QuickSight or Redshift dataware house 
 ![Screenshot 2024-03-17 at 10 47 34 PM](https://github.com/vancouver-sky/AWS/assets/71688244/2b420ccd-b7bf-459c-9300-975c53eec83d)
+
+- VPN
+ - Transit Gateway is the only AWS service which supports **IP Multicast**
+ - ECMP - Equal-cost multi-path routing
